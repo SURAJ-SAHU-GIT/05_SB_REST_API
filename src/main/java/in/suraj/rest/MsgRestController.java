@@ -1,11 +1,10 @@
 package in.suraj.rest;
 
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import in.suraj.constants.AppConstants;
 import in.suraj.props.AppProperties;
 
 @RestController
@@ -15,20 +14,17 @@ public class MsgRestController {
 	
 	@GetMapping("welcome")
 	public String getWelcomeMsg() {
-		Map<String, String> messages = appProps.getMessages();
-		return messages.get("welcomeMsg");
+		return appProps.getMessages().get(AppConstants.WELCOME_MSG_KEY);
 	}
 	
 	@GetMapping("greet")
 	public String getGreetMsg() {
-		Map<String, String> messages= appProps.getMessages();
-		return messages.get("greetMsg");
+		return appProps.getMessages().get(AppConstants.GREET_MSG_KEY);
 	}
 
 	
 	@GetMapping("HELLO")
 	public String getHelloMsg() {
-		Map<String, String> messages= appProps.getMessages();
-		return messages.get("helloK");
+		return appProps.getMessages().get(AppConstants.HELLO_MSG_KEY);
 	}
 }
